@@ -4,6 +4,12 @@
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 ############################
 
+##########
+# Copied from https://github.com/michaeljsmalley/dotfiles/blob/master/makesymlinks.sh
+#  26 June 2014
+##########
+
+
 ########## Variables
 
 dir=~/dotfiles                    # dotfiles directory
