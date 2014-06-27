@@ -8,9 +8,6 @@ Bundle 'gmarik/vundle'
 
 Bundle 'rails.vim'
 Bundle 'altercation/vim-colors-solarized'
-" Bundle 'vim-scripts/Color-Sampler-Pack'
-" Bundle 'vim-scripts/Tagbar'
-Bundle 'vim-scripts/taglist.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-fugitive'
@@ -31,4 +28,3 @@ set nowrap
 set background=dark
 colorscheme solarized
 
-set tags=./tags,~/dev/study/agile_web_devlopment/depot,~/dev/study/rails_tutorial
