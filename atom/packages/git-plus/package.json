@@ -1,19 +1,9 @@
 {
   "name": "git-plus",
   "main": "./lib/git-plus",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "description": "Do git things without the terminal",
-  "activationEvents": [
-    "git-plus:menu",
-    "git-plus:add",
-    "git-plus:commit",
-    "git-plus:add-and-commit",
-    "git-plus:add-all-and-commit",
-    "git-plus:status",
-    "git-plus:log",
-    "git-plus:diff",
-    "git-plus:diff-all"
-  ],
+  "activationEvents": [],
   "repository": {
     "type": "git",
     "url": "https://github.com/akonwi/git-plus"
@@ -36,10 +26,10 @@
     "url": "https://github.com/akonwi/git-plus/issues"
   },
   "homepage": "https://github.com/akonwi/git-plus",
-  "_id": "git-plus@3.4.0",
+  "_id": "git-plus@3.5.0",
   "dist": {
-    "shasum": "629f614364e4c870596cdad0442252d881987aa6"
+    "shasum": "6c57b67fb058d2c7e9a0e4549821a7a081919c5a"
   },
-  "_resolved": "/var/folders/rp/n758mcm51zg8hky_hvyszf380000gn/T/d-114526-86722-k5a03/package.tgz",
-  "_from": "/var/folders/rp/n758mcm51zg8hky_hvyszf380000gn/T/d-114526-86722-k5a03/package.tgz"
+  "_resolved": "/var/folders/fb/xnrsj9sn18b_7061dnpk9cx80000gn/T/d-11461-36480-10yao8w/package.tgz",
+  "_from": "/var/folders/fb/xnrsj9sn18b_7061dnpk9cx80000gn/T/d-11461-36480-10yao8w/package.tgz"
 }
