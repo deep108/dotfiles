@@ -11,5 +11,6 @@
     'atom-dark-ui'
     'atom-dark-syntax'
   ]
+  'useReactEditor': true
 'autosave':
   'enabled': true
