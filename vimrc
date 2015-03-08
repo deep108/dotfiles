@@ -12,11 +12,6 @@ Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 
-
-" Plugin 'croaker/mustang-vim'
-" Plugin 'vim-scripts/rdark-terminal'
-" Plugin 'oguzbilgic/sexy-railscasts-theme'
-" Plugin 'wincent/Command-T'
 " Bundle 'scrooloose/nerdcommenter'
 " Bundle 'vim-scripts/taglist.vim'
 
@@ -36,8 +31,8 @@ set nowrap
 
 set background=dark
 
-colorscheme solarized
-" colorscheme rdark-terminal
+" colorscheme solarized
+colorscheme mustang
 
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
