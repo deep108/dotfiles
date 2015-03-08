@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -72,3 +72,14 @@ fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/David/dev/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables bash completion for gcloud.
+source '/Users/David/dev/google-cloud-sdk/completion.zsh.inc'
+
+export GOPATH=/usr/local/go
+
+# export PATH=$PATH:$sdk_dir/platform/google_appengine/goroot/bin

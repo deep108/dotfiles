@@ -1,18 +1,31 @@
-'exception-reporting':
-  'userId': '6920df4b-2520-e803-67e6-f97d96813a39'
-'welcome':
-  'showOnStartup': false
-'metrics':
-  'userId': '51d84ec1a7e366bcc49b157172f1c1541975de2d'
-'editor':
-  'fontSize': 13
-'core':
-  'themes': [
-    'atom-dark-ui'
-    'atom-dark-syntax'
-  ]
-  'useReactEditor': true
-'autosave':
-  'enabled': true
-'tree-view':
-  'hideVcsIgnoredFiles': true
+"*":
+  "exception-reporting":
+    userId: "6920df4b-2520-e803-67e6-f97d96813a39"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "51d84ec1a7e366bcc49b157172f1c1541975de2d"
+  editor:
+    fontSize: 14
+    tabLength: 4
+    scrollPastEnd: true
+    invisibles: {}
+    fontFamily: "Lucida Grande Mono"
+  core:
+    excludeVcsIgnoredPaths: false
+    disabledPackages: [
+      "atom-jsfmt"
+      "autocomplete-plus"
+    ]
+  autosave:
+    enabled: true
+  "go-plus":
+    goPath: "/usr/local/go"
+  esformatter:
+    formatOnSave: true
+  linter: {}
+  react: {}
+  "sync-settings": {}
+".plain.text":
+  editor:
+    tabLength: 2

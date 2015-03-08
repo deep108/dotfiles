@@ -1,3 +1,6 @@
+{Range} = require 'atom'
+AllWhitespace = /^\s$/
+
 class TextObject
   constructor: (@editor, @state) ->
 
@@ -6,7 +9,7 @@ class TextObject
 
 class SelectInsideWord extends TextObject
   select: ->
-    @editor.selectWord()
+    @editor.selectWordsContainingCursors()
     [true]
 
 # SelectInsideQuotes and the next class defined (SelectInsideBrackets) are
@@ -14,61 +17,80 @@ class SelectInsideWord extends TextObject
 # checks in the bracket matcher.
 
 class SelectInsideQuotes extends TextObject
-  constructor: (@editor, @char) ->
+  constructor: (@editor, @char, @includeQuotes) ->
 
   findOpeningQuote: (pos) ->
+    start = pos.copy()
     pos = pos.copy()
     while pos.row >= 0
-      line = @editor.lineForBufferRow(pos.row)
+      line = @editor.lineTextForBufferRow(pos.row)
       pos.column = line.length - 1 if pos.column == -1
       while pos.column >= 0
         if line[pos.column] == @char
-          return pos if pos.column == 0 or line[pos.column - 1] != '\\'
+          if pos.column == 0 or line[pos.column - 1] != '\\'
+            if @isStartQuote(pos)
+              return pos
+            else
+              return @lookForwardOnLine(start)
         -- pos.column
       pos.column = -1
       -- pos.row
+    @lookForwardOnLine(start)
+
+  isStartQuote: (end) ->
+    line = @editor.lineTextForBufferRow(end.row)
+    numQuotes = line.substring(0, end.column + 1).replace( "'#{@char}", '').split(@char).length - 1
+    numQuotes % 2
+
+  lookForwardOnLine: (pos) ->
+    line = @editor.lineTextForBufferRow(pos.row)
+
+    index = line.substring(pos.column).indexOf(@char)
+    if index >= 0
+      pos.column += index
+      return pos
+    null
 
   findClosingQuote: (start) ->
     end = start.copy()
     escaping = false
 
     while end.row < @editor.getLineCount()
-      endLine = @editor.lineForBufferRow(end.row)
+      endLine = @editor.lineTextForBufferRow(end.row)
       while end.column < endLine.length
         if endLine[end.column] == '\\'
           ++ end.column
         else if endLine[end.column] == @char
-          @editor.expandSelectionsForward (selection) =>
-            selection.cursor.setBufferPosition start
-            selection.selectToBufferPosition end
-          return {select:[true], end:end}
+          -- start.column if @includeQuotes
+          ++ end.column if @includeQuotes
+          return end
         ++ end.column
       end.column = 0
       ++ end.row
-
-    {select:[false], end:end}
+    return
 
   select: ->
-    start = @findOpeningQuote(@editor.getCursorBufferPosition())
-    return [false] unless start?
-
-    ++ start.column  # skip the opening quote
-
-    {select,end} = @findClosingQuote(start)
-    select
+    for selection in @editor.getSelections()
+      start = @findOpeningQuote(selection.cursor.getBufferPosition())
+      if start?
+        ++ start.column # skip the opening quote
+        end = @findClosingQuote(start)
+        if end?
+          selection.setBufferRange([start, end])
+      not selection.isEmpty()
 
 # SelectInsideBrackets and the previous class defined (SelectInsideQuotes) are
 # almost-but-not-quite-repeated code. They are different because of the depth
 # checks in the bracket matcher.
 
 class SelectInsideBrackets extends TextObject
-  constructor: (@editor, @beginChar, @endChar) ->
+  constructor: (@editor, @beginChar, @endChar, @includeBrackets) ->
 
   findOpeningBracket: (pos) ->
     pos = pos.copy()
     depth = 0
     while pos.row >= 0
-      line = @editor.lineForBufferRow(pos.row)
+      line = @editor.lineTextForBufferRow(pos.row)
       pos.column = line.length - 1 if pos.column == -1
       while pos.column >= 0
         switch line[pos.column]
@@ -83,27 +105,39 @@ class SelectInsideBrackets extends TextObject
     end = start.copy()
     depth = 0
     while end.row < @editor.getLineCount()
-      endLine = @editor.lineForBufferRow(end.row)
+      endLine = @editor.lineTextForBufferRow(end.row)
       while end.column < endLine.length
         switch endLine[end.column]
           when @beginChar then ++ depth
           when @endChar
             if -- depth < 0
-              @editor.expandSelectionsForward (selection) =>
-                selection.cursor.setBufferPosition start
-                selection.selectToBufferPosition end
-              return {select:[true], end:end}
+              -- start.column if @includeBrackets
+              ++ end.column if @includeBrackets
+              return end
         ++ end.column
       end.column = 0
       ++ end.row
-
-    {select:[false], end:end}
+    return
 
   select: ->
-    start = @findOpeningBracket(@editor.getCursorBufferPosition())
-    return [false] unless start?
-    ++ start.column  # skip the opening bracket
-    {select,end} = @findClosingBracket(start)
-    select
+    for selection in @editor.getSelections()
+      start = @findOpeningBracket(selection.cursor.getBufferPosition())
+      if start?
+        ++ start.column # skip the opening quote
+        end = @findClosingBracket(start)
+        if end?
+          selection.setBufferRange([start, end])
+      not selection.isEmpty()
 
-module.exports = {TextObject, SelectInsideWord, SelectInsideQuotes, SelectInsideBrackets}
+class SelectAWord extends TextObject
+  select: ->
+    for selection in @editor.getSelections()
+      selection.selectWord()
+      loop
+        endPoint = selection.getBufferRange().end
+        char = @editor.getTextInRange(Range.fromPointWithDelta(endPoint, 0, 1))
+        break unless AllWhitespace.test(char)
+        selection.selectRight()
+      true
+
+module.exports = {TextObject, SelectInsideWord, SelectInsideQuotes, SelectInsideBrackets, SelectAWord}
