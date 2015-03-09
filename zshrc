@@ -54,7 +54,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export GOPATH=$HOME/dev/go
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -72,3 +73,8 @@ fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+source $HOME/dev/google-cloud-sdk/path.zsh.inc
+source $HOME/dev/google-cloud-sdk/completion.zsh.inc
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
