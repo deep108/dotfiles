@@ -11,6 +11,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
+Plugin 'airblade/vim-gitgutter'
 
 " Bundle 'scrooloose/nerdcommenter'
 " Bundle 'vim-scripts/taglist.vim'
@@ -31,9 +32,15 @@ set nowrap
 
 set background=dark
 
-" colorscheme solarized
-colorscheme mustang
+colorscheme sexy-railscasts
+" colorscheme mustang
 
+" GitGutter settings
+highlight clear SignColumn 
+let g:gitgutter_realtime=1
+set updatetime=750
+
+" Settings to get rid of .swp files in repo
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
