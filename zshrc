@@ -54,7 +54,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export GOPATH=$HOME/dev/go
+#export GOPATH=$HOME/dev/go
+export GOPATH=/usr/local/go
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -78,3 +79,4 @@ source $HOME/dev/google-cloud-sdk/path.zsh.inc
 source $HOME/dev/google-cloud-sdk/completion.zsh.inc
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# export PATH=$PATH:$sdk_dir/platform/google_appengine/goroot/bin

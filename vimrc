@@ -1,22 +1,26 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
-Bundle 'rails.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-fugitive'
-Bundle 'wincent/Command-T'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-fugitive'
+Plugin 'fatih/vim-go'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+
+" Bundle 'scrooloose/nerdcommenter'
+" Bundle 'vim-scripts/taglist.vim'
+
+call vundle#end()
 
 filetype plugin indent on
 
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 set showmatch
 set ruler		" show the cursor position all the time
@@ -26,5 +30,11 @@ set incsearch		" do incremental searching
 set nowrap
 
 set background=dark
-colorscheme solarized
+
+" colorscheme solarized
+colorscheme mustang
+
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 
