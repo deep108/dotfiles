@@ -12,6 +12,8 @@ Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
 
 " Bundle 'scrooloose/nerdcommenter'
 " Bundle 'vim-scripts/taglist.vim'
@@ -44,4 +46,7 @@ set updatetime=750
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
+
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
 
