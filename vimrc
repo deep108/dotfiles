@@ -12,6 +12,8 @@ Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
 
 " Bundle 'scrooloose/nerdcommenter'
 " Bundle 'vim-scripts/taglist.vim'
@@ -48,3 +50,6 @@ set undodir=~/.vim/undo//
 " 7.4.480
 au BufRead,BufNewFile *.md set filetype=markdown
 
+" Turn off the bells
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
