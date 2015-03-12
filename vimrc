@@ -33,7 +33,6 @@ set nowrap
 set background=dark
 
 colorscheme sexy-railscasts
-" colorscheme mustang
 
 " GitGutter settings
 highlight clear SignColumn 
@@ -44,4 +43,8 @@ set updatetime=750
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
+
+" Hack so .md files are recognized as Markdown. Shouldn't be needed after Vim
+" 7.4.480
+au BufRead,BufNewFile *.md set filetype=markdown
 
