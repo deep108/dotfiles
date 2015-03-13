@@ -12,9 +12,12 @@ Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-session'
+Plugin 'bling/vim-airline'
+Plugin 'tomtom/tcomment_vim'
 
+
+" Plugin 'xolox/vim-misc'
+" Plugin 'xolox/vim-session'
 " Bundle 'scrooloose/nerdcommenter'
 " Bundle 'vim-scripts/taglist.vim'
 
