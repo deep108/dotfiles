@@ -14,7 +14,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'tomtom/tcomment_vim'
-
+Plugin 'pangloss/vim-javascript'
 
 " Plugin 'xolox/vim-misc'
 " Plugin 'xolox/vim-session'
