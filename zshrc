@@ -56,7 +56,7 @@ source $ZSH/oh-my-zsh.sh
 
 #export GOPATH=$HOME/dev/go
 export GOPATH=/usr/local/go
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin
+# export PATH=/usr/local/bin:$HOME/bin:$PATH:$GOPATH/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -66,7 +66,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='atom'
+  export EDITOR='mvim'
 fi
 
 # Compilation flags
@@ -75,8 +75,16 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-source $HOME/dev/google-cloud-sdk/path.zsh.inc
-source $HOME/dev/google-cloud-sdk/completion.zsh.inc
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/David/dev/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/David/dev/google-cloud-sdk/completion.zsh.inc'
+
 # export PATH=$PATH:$sdk_dir/platform/google_appengine/goroot/bin
+export PATH=$HOME/dev/go_appengine/goroot/bin:$PATH
+export PATH=$HOME/dev/go_appengine:$PATH
+
