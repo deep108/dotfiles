@@ -54,9 +54,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-#export GOPATH=$HOME/dev/go
-export GOPATH=/usr/local/go
-# export PATH=/usr/local/bin:$HOME/bin:$PATH:$GOPATH/bin
+export GOROOT=$HOME/dev/go
+export PATH=$GOROOT/bin:$PATH
+# export PATH=/usr/local/bin:$HOME/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

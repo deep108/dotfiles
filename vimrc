@@ -15,6 +15,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'leafgarland/typescript-vim'
 
 " Plugin 'xolox/vim-misc'
 " Plugin 'xolox/vim-session'
@@ -38,6 +41,9 @@ set nowrap
 set background=dark
 
 colorscheme sexy-railscasts
+
+" vim-jsx settings
+let g:jsx_ext_required = 0
 
 " GitGutter settings
 highlight clear SignColumn 
