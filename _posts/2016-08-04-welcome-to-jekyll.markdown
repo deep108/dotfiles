@@ -1,12 +1,9 @@
 ---
 layout: post
-title: Welcome to Jekyll!
-date: '2016-08-01 18:41:08 -0700'
+title:  "Welcome to Jekyll!"
+date:   2016-08-04 15:14:19 -0700
 categories: jekyll update
-published: true
 ---
-## Trying to edit something in prose.io
-
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
 To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
